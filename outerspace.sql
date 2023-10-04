@@ -37,12 +37,12 @@ INSERT INTO moons
     ('Phobos', 'Mars'),
     ('Deimos', 'Mars');
 
-SELECT
+  SELECT
   planets.name AS planet,
   stars.name AS star,
   COUNT(moons.name) AS moon_count
-  FROM moons
-    FULL JOIN planets
+  FROM planets
+    LEFT JOIN moons
       ON moons.planet_orbiting_name = planets.name
     INNER JOIN stars
       ON planets.star_orbiting_name = stars.name
